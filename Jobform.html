@@ -1,0 +1,158 @@
+<!--
+
+Job Application Page
+
+This page is part of the Prismatics Group Project for the COS10026 Web Technology unit.
+It has been developed by the project team to allow candidates to apply for job positions
+at our startup, Prismatics, which is strengthening its product and design team through tech talent.
+
+The form below collects essential candidate information, including personal details, contact information,
+skills, and the job reference number. All inputs are validated using HTML5 standards to ensure
+accuracy and accessibility.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apply for tech and design roles at Prismatics, an IT startup strengthening its product and design team through tech talent.">
+  <meta name="author" content="Prismatics Group Project">
+  <title>Job Application | Prismatics</title>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header>
+    <h1>Prismatics Recruitment Portal</h1>
+    <p>Strengthening our product and design team through tech talent</p>
+    
+    <!-- Navigation menu (common across all pages) -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="apply.html">Apply</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <h2>Job Application Form</h2>
+      <p>
+        Please complete the form below to apply for one of our available positions. 
+        Fields marked with * are required.
+      </p>
+
+      <!-- Application Form -->
+      <form action="formtest.php" method="post">
+
+        <!-- Job Reference Number -->
+        <label for="jobref">Job Reference Number *</label>
+        <input type="text" id="jobref" name="jobref" pattern="[A-Za-z0-9]{5}" required>
+        <br><br>
+
+        <!-- First Name -->
+        <label for="firstname">First Name *</label>
+        <input type="text" id="firstname" name="firstname" maxlength="20" pattern="[A-Za-z]+" required>
+        <br><br>
+
+        <!-- Last Name -->
+        <label for="lastname">Last Name *</label>
+        <input type="text" id="lastname" name="lastname" maxlength="20" pattern="[A-Za-z]+" required>
+        <br><br>
+
+        <!-- Date of Birth -->
+        <label for="dob">Date of Birth (dd/mm/yyyy) *</label>
+        <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
+        <br><br>
+
+        <!-- Gender -->
+        <fieldset>
+          <legend>Gender *</legend>
+          <label><input type="radio" name="gender" value="male" required> Male</label>
+          <label><input type="radio" name="gender" value="female"> Female</label>
+          <label><input type="radio" name="gender" value="other"> Other</label>
+        </fieldset>
+        <br>
+
+        <!-- Street Address -->
+        <label for="street">Street Address *</label>
+        <input type="text" id="street" name="street" maxlength="40" required>
+        <br><br>
+
+        <!-- Suburb/Town -->
+        <label for="suburb">Suburb/Town *</label>
+        <input type="text" id="suburb" name="suburb" maxlength="40" required>
+        <br><br>
+
+        <!-- State -->
+        <label for="state">State *</label>
+        <select id="state" name="state" required>
+          <option value="">-- Select --</option>
+          <option value="VIC">VIC</option>
+          <option value="NSW">NSW</option>
+          <option value="QLD">QLD</option>
+          <option value="NT">NT</option>
+          <option value="WA">WA</option>
+          <option value="SA">SA</option>
+          <option value="TAS">TAS</option>
+          <option value="ACT">ACT</option>
+        </select>
+        <br><br>
+
+        <!-- Postcode -->
+        <label for="postcode">Postcode *</label>
+        <input type="text" id="postcode" name="postcode" pattern="\d{4}" required>
+        <br><br>
+
+        <!-- Email -->
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <!-- Phone -->
+        <label for="phone">Phone Number (8–12 digits) *</label>
+        <input type="text" id="phone" name="phone" pattern="\d{8,12}" required>
+        <br><br>
+
+        <!-- Skills -->
+        <fieldset>
+          <legend>Skills *</legend>
+          <label><input type="checkbox" name="skills" value="html" required> HTML</label>
+          <label><input type="checkbox" name="skills" value="css"> CSS</label>
+          <label><input type="checkbox" name="skills" value="javascript"> JavaScript</label>
+          <label><input type="checkbox" name="skills" value="design"> UI/UX Design</label>
+          <label><input type="checkbox" name="skills" value="other"> Other skills…</label>
+        </fieldset>
+        <br>
+
+        <!-- Other Skills -->
+        <label for="otherskills">Please describe other skills:</label><br>
+        <textarea id="otherskills" name="otherskills" rows="4" cols="40"></textarea>
+        <br><br>
+
+        <!-- Submit and Reset-->
+        <input type= "submit" value="Submit Form">
+	    <input type= "reset" value="Reset Form">
+
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Prismatics</p>
+    <p>
+      <a href="https://github.com/yourusername/prismatics_group-project">GitHub Repository</a> |
+      <a href="https://jira.example.com">Jira</a> |
+      <a href="mailto:info@companyname.com">Email Us</a>
+    </p>
+  </footer>
+
+</body>
+</html>
