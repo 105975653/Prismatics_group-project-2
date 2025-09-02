@@ -10,8 +10,8 @@ Features
 
 1) Homepage (index.html)
 2) Jobs Page (jobs.html)
-3)Application Form (apply.html)
-4)About Page (about.html)
+3) Application Form (apply.html)
+4) About Page (about.html)
 
 Group Details
 
