@@ -1,1 +1,185 @@
-/* This is where all the styles for every page will be. */
+/* Body and general layout */
+body {
+    background: 
+    linear-gradient(123deg, #FFFCAC 0%, #FFFFFF 67%), 
+    linear-gradient(180deg, #D8D8D8 0%, #ffffff 100%), 
+    linear-gradient(142deg, #F9F5F0 0%, #F9F5F0 33%, #F2EAD3 calc(33% + 1px), #F2EAD3 56%, #ffbcbc calc(56% + 1px), #ffbcbc 62%, #d57cff calc(62% + 1px), #e5adff 100%);
+    background-blend-mode: multiply, overlay, normal;
+    font-family: 'Merriweather', serif;
+    line-height: 1.5;
+  
+}
+
+
+/* nav bar horizontally */
+.nav-menu li {
+  list-style-type: none;       /* remove bullets */
+  display: inline;          /* horizontal layout */
+  align-items: center;    /* vertical alignment */
+  padding: 30px;
+}
+
+/* Nav bar color, boldness etc */
+.nav-menu li a {
+
+    text-decoration: none;  /* remove underline */
+    color: #000000;         /* neon green text */
+    font-weight: bold;
+    transition: color 0.5s, text-shadow 0.5s;
+}
+
+/* Nav bar hovering and active link effects */
+.nav-menu li a:hover {
+    color: antiquewhite;
+    text-shadow: 0 0 8px #ff0000;    /* glowing neon effect */
+}
+
+.nav-menu li a.active-link {
+    color: #ff0000;                   /* turn white on hover or active */
+
+}
+
+/* Headings font and boldness*/
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+/* Centering and sizing Header, The top para and Nav bar */
+h1, h2, #introm, #top-para, .nav-menu {
+    text-align: center;
+    font-size: 1.3rem; 
+}
+
+/* Borders around nav */
+nav {
+    border: 0.2rem solid #000000;  /* neon green border */
+    padding: 10px 20px;          /* space inside the border */
+    border-radius: 8px;          /* rounded corners (optional) */
+    background: 
+    linear-gradient(123deg, #FFFCAC 0%, #FFFFFF 67%), 
+    linear-gradient(180deg, #D8D8D8 0%, #ffffff 100%), 
+    linear-gradient(142deg, #F9F5F0 0%, #F9F5F0 33%, #F2EAD3 calc(33% + 1px), #F2EAD3 56%, #ffbcbc calc(56% + 1px), #ffbcbc 62%, #d57cff calc(62% + 1px), #e5adff 100%);
+    background-blend-mode: multiply, overlay, normal;
+}
+
+fieldset {
+    border: 2px solid #000000; /* neon green */
+    border-radius: 6px;       /* optional: round the corners */
+}
+
+.job-personal {
+    width: 49%;
+    float: left;
+    height: 18rem;
+}
+
+.address {
+    max-width: 49%;
+    height: 18rem;
+}
+
+.skills { 
+    width: 49%;
+    float: left;
+    height: 30rem;
+}
+
+.faqs {
+    margin-top: none;
+}
+
+
+
+.btn {
+  background: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn:hover {
+  color: #10e7ff;
+}
+.btn-reset {
+  background: #ff0000;
+  color: #fff;
+}
+.btn-reset:hover {
+  background: #ff0000;
+}
+
+textarea {
+    resize: none;          /* disables resizing */
+    overflow: auto;        /* adds scrollbars if content overflows */
+    border-radius: 8px;
+    border: 1px solid #c4c4c4;
+    background-color: #c59e9e;
+}
+
+
+#footerp {
+    margin-left: 75rem;
+}
+
+footer {
+    clear: both;
+}
+
+
+.faqs summary {
+    cursor: pointer;             /* show pointer on hover */
+    font-weight: 600;            /* make summary headings slightly bolder */
+    padding: 5px 10px;           /* some spacing inside */
+    transition: background 0.3s, color 0.3s,; /* smooth transition */
+}
+
+.faqs summary:hover {
+    background: rgba(0, 0, 0, 0.05); /* subtle light background */
+    color: #474747;                        /* darker text color on hover */
+    text-decoration: underline;            /* optional underline for emphasis */
+}
+
+.faqs details p {
+    background-color: #f9f9f9;  /* light gray */
+    border-left: 4px dashed #6b5b95;  
+    padding: 10px;
+    border-radius: 4px;
+    font-style: italic;
+    color: #333;
+    font-size: 0.95rem;
+    
+}
+
+legend {
+    font-weight: bold;
+    color: #000000;
+    
+}
+
+/* Below is the specific CSS for About page. */
+
+
+#starting-section {
+    float: left;
+}
+
+.student-id {
+    float: right;
+    text-align: right;      /* Align text to the right */
+    font-style: italic;     /* Optional: italic for style */
+    margin-bottom: 1rem;    /* Some space below */
+    margin-top: 1.2rem;    /* Some space below */
+    color: #555555;         /* Optional: subtle color */
+    border: 2px solid #000000;
+    padding: 10px;
+    box-shadow: 5px 10px 5px #aaaaaa;
+
+}
+
+#Membercontrib {
+    clear: both;
+}
