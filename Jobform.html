@@ -144,6 +144,76 @@
         </fieldset>
         <br>
 
+        <fieldset>
+          <legend>6) Preferred Working Style & Availability</legend>
+          <label><input type="radio" name="workstyle" value="remote" required> Remote</label>
+          <label><input type="radio" name="workstyle" value="hybrid"> Hybrid</label>
+          <label><input type="radio" name="workstyle" value="office"> Office</label>
+          <br><br>
+          <label for="startdate" class="form-label">Available From:</label>
+          <input type="date" id="startdate" class="form-input" name="startdate">
+        </fieldset>
+        <br>
+        <fieldset>
+          <legend>7) Upload Resume & References</legend>
+          <br>
+          <input type="file" id="resume" class="form-input" name="resume" accept=".pdf,.doc,.docx">
+          <br><br>
+          <label for="references" class="form-label">References (Optional):</label><br>
+          <textarea id="references" class="form-input" name="references" rows="5" cols="95"></textarea>
+        </fieldset>
+      </div>
+
+      <!-- Row 4: Hiring FAQ (left) -->
+      <fieldset class="faqs">
+        <legend>Hiring FAQ</legend>
+        <!-- details here same as original -->
+        <details>
+          <summary>What is the typical timeline for the hiring process?</summary>
+          <p>Our hiring process usually takes 1–2 weeks...</p>
+        </details>
+        <details>
+          <summary>Do I need prior experience to apply?</summary>
+          <p>Not necessarily! We value passion, willingness to learn, and a strong portfolio. Recent graduates and career changers are encouraged to apply.</p>
+        </details>
+        <details>
+          <summary>Can I apply for multiple positions?</summary>
+          <p>Yes! Feel free to submit separate applications for different roles that match your skills and interests.</p>
+        </details>
+        <details>
+          <summary>What should I include in my resume?</summary>
+          <p>Include your contact information, educational background, relevant work experience, and any projects or portfolio that showcase your skills.</p>
+        </details>
+        <details>
+          <summary>Is remote work an option?</summary>
+          <p>We offer flexible work arrangements, including remote work, depending on the role and team needs.</p>
+        </details>
+        <details>
+          <summary>Will I need to complete a technical assessment?</summary>
+          <p>For certain positions, especially in development and design, a technical assessment may be part of the interview process to evaluate your problem-solving skills and expertise.</p>
+        </details>
+        <details>
+          <summary>How can I prepare for the interview?</summary>
+          <p>Review the job description, research our company culture, and practice common interview questions. For technical roles, be ready to discuss past projects and problem-solving approaches.</p>
+        </details>
+        <details>
+          <summary>What happens after the interview?</summary>
+          <p>After your interview, our team will review all candidates and reach out with feedback or next steps. If selected, we’ll extend an offer and discuss onboarding.</p>
+        </details>
+      </fieldset>
+
+      <fieldset class="left">
+        <legend>Stay Connected</legend>
+        <label for="newsletter" class="form-label">Sign up for our newsletter (optional):</label><br>
+        <input type="email" id="newsletter" class="form-input" name="newsletter" placeholder="Enter your email">
+      </fieldset>
+      <br>
+
+      <!-- Row 6: Buttons -->
+      <div class="button-row">
+        <button type="submit" class="btn">🚀 Send My Application</button>
+        <button type="reset" class="btn btn-reset">Reset Form</button>
+      </div>
 
     </form>
   </section>
