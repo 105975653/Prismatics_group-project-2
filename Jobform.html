@@ -1,98 +1,93 @@
-<!--
-
-Job Application Page
-
-This page is part of the Prismatics Group Project for the COS10026 Web Technology unit.
-It has been developed by the project team to allow candidates to apply for job positions
-at our startup, Prismatics, which is strengthening its product and design team through tech talent.
-
-The form below collects essential candidate information, including personal details, contact information,
-skills, and the job reference number. All inputs are validated using HTML5 standards to ensure
-accuracy and accessibility.
--->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Prismatics, job application, tech, design, recruitment">
   <meta name="description" content="Apply for tech and design roles at Prismatics, an IT startup strengthening its product and design team through tech talent.">
   <meta name="author" content="Prismatics Group Project">
   <title>Job Application | Prismatics</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f5f5f5;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Site Header -->
-  <header>
+<header id="main-header">
+  <div class="header-content">
     <h1>Prismatics Recruitment Portal</h1>
-    <p>Strengthening our product and design team through tech talent</p>
-    
-    <!-- Navigation menu (common across all pages) -->
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="jobs.html">Jobs</a></li>
-        <li><a href="apply.html">Apply</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  </header>
+  </div>
+  <p id="top-para">Strengthening our product and design team through tech talent</p>
 
-  <!-- Main Content -->
-  <main>
-    <section>
-      <h2>Job Application Form</h2>
-      <p>
-        Please complete the form below to apply for one of our available positions. 
-        Fields marked with * are required.
-      </p>
+  <nav>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="apply.html" class="active-link">Apply</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+</header>
 
-      <!-- Application Form -->
-      <form action="formtest.php" method="post">
+<main>
+  <section id="application-section">
+    <h2>Job Application Form</h2>
+    <p id="introm">👋 We’re excited that you’re here! Please follow the steps below to send us your application. Fields marked with * are required.</p>
 
-        <!-- Job Reference Number -->
-        <label for="jobref">Job Reference Number *</label>
-        <input type="text" id="jobref" name="jobref" pattern="[A-Za-z0-9]{5}" required>
+    <!-- Main Form Container -->
+    <form action="formtest.php" method="post" class="form-container">
+
+      <!-- Row 1: Select Job Position (alone on left) -->
+      <fieldset class="left">
+        <legend>1) Select Job Position</legend>
+        <label for="jobposition" class="form-label">Which position are you applying for? *</label>
+        <select id="jobposition" class="form-input" name="jobposition" required>
+          <option value="">-- Select Position --</option>
+          <option value="product-architect">Product Architect (Product Team)</option>
+          <option value="reality-designer">Reality Designer (Design Team)</option>
+        </select>
+      </fieldset>
+
+      <!-- Row 2: Job & Personal Info (left) + Address (right) -->
+      <fieldset class="job-personal">
+        <legend>2) Job & Personal Info</legend>
+        <label for="jobref" class="form-label">Job Reference Number *</label>
+        <input type="text" id="jobref" class="form-input" name="jobref" pattern="[A-Za-z0-9]{5}" placeholder="2HJ89 (5 characters)" required>
         <br><br>
-
-        <!-- First Name -->
-        <label for="firstname">First Name *</label>
-        <input type="text" id="firstname" name="firstname" maxlength="20" pattern="[A-Za-z]+" required>
+        <label for="firstname" class="form-label">First Name *</label>
+        <input type="text" id="firstname" class="form-input" name="firstname" maxlength="20" pattern="[A-Za-z]{1,20}" placeholder="Brock" required>
         <br><br>
-
-        <!-- Last Name -->
-        <label for="lastname">Last Name *</label>
-        <input type="text" id="lastname" name="lastname" maxlength="20" pattern="[A-Za-z]+" required>
+        <label for="lastname" class="form-label">Last Name *</label>
+        <input type="text" id="lastname" class="form-input" name="lastname" maxlength="20" pattern="[A-Za-z]{1,20}" placeholder="oLee" required>
         <br><br>
-
-        <!-- Date of Birth -->
-        <label for="dob">Date of Birth (dd/mm/yyyy) *</label>
-        <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
+        <label for="dob" class="form-label">Date of Birth (dd/mm/yyyy) *</label>
+        <input type="text" id="dob" class="form-input" name="dob" pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy" required>
         <br><br>
-
-        <!-- Gender -->
-        <fieldset>
+        <fieldset class="form-section">
           <legend>Gender *</legend>
           <label><input type="radio" name="gender" value="male" required> Male</label>
           <label><input type="radio" name="gender" value="female"> Female</label>
           <label><input type="radio" name="gender" value="other"> Other</label>
         </fieldset>
-        <br>
+      </fieldset>
 
-        <!-- Street Address -->
-        <label for="street">Street Address *</label>
-        <input type="text" id="street" name="street" maxlength="40" required>
+      <fieldset class="address">
+        <legend>3) Address</legend>
+        <label for="street" class="form-label">Street Address *</label>
+        <input type="text" id="street" class="form-input" name="street" maxlength="40" required>
         <br><br>
-
-        <!-- Suburb/Town -->
-        <label for="suburb">Suburb/Town *</label>
-        <input type="text" id="suburb" name="suburb" maxlength="40" required>
+        <label for="suburb" class="form-label">Suburb/Town *</label>
+        <input type="text" id="suburb" class="form-input" name="suburb" maxlength="40" required>
         <br><br>
-
-        <!-- State -->
-        <label for="state">State *</label>
-        <select id="state" name="state" required>
+        <label for="state" class="form-label">State *</label>
+        <select id="state" class="form-input" name="state" required>
           <option value="">-- Select --</option>
           <option value="VIC">VIC</option>
           <option value="NSW">NSW</option>
@@ -104,55 +99,66 @@ accuracy and accessibility.
           <option value="ACT">ACT</option>
         </select>
         <br><br>
-
-        <!-- Postcode -->
-        <label for="postcode">Postcode *</label>
-        <input type="text" id="postcode" name="postcode" pattern="\d{4}" required>
+        <label for="postcode" class="form-label">Postcode *</label>
+        <input type="text" id="postcode" class="form-input" name="postcode" pattern="\d{4}" placeholder="3122" required>
         <br><br>
 
-        <!-- Email -->
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required>
-        <br><br>
+      </fieldset>
 
-        <!-- Phone -->
-        <label for="phone">Phone Number (8–12 digits) *</label>
-        <input type="text" id="phone" name="phone" pattern="\d{8,12}" required>
-        <br><br>
-
-        <!-- Skills -->
-        <fieldset>
-          <legend>Skills *</legend>
-          <label><input type="checkbox" name="skills" value="html" required> HTML</label>
+      <!-- Row 3: Skills (left) + stacked right -->
+      <fieldset class="skills">
+        <legend>4) Skills</legend>
+        <div class="skills-group">
+          <p>Please select all skills that apply.</p>
+          <label><input type="checkbox" name="skills" value="html"> HTML</label>
           <label><input type="checkbox" name="skills" value="css"> CSS</label>
           <label><input type="checkbox" name="skills" value="javascript"> JavaScript</label>
           <label><input type="checkbox" name="skills" value="design"> UI/UX Design</label>
           <label><input type="checkbox" name="skills" value="other"> Other skills…</label>
+        </div>
+        <p>Rate your skill level for the skills you checked (1 = Beginner, 10 = Expert):</p>
+        <label for="htmllevel">HTML:</label>
+        <input type="range" id="htmllevel" class="skill-slider" name="htmllevel" min="1" max="10" value="1">
+        <br><br>
+        <label for="csslevel">CSS:</label>
+        <input type="range" id="csslevel" class="skill-slider" name="csslevel" min="1" max="10" value="1">
+        <br><br>
+        <label for="jslevel">JavaScript:</label>
+        <input type="range" id="jslevel" class="skill-slider" name="jslevel" min="1" max="10" value="1">
+        <br><br>
+        <label for="designlevel">UI/UX Design:</label>
+        <input type="range" id="designlevel" class="skill-slider" name="designlevel" min="1" max="10" value="1">
+        <br><br>
+        <label for="otherskills" class="form-label">Please describe other skills:</label><br>
+        <textarea id="otherskills" class="form-input" name="otherskills" rows="6" cols=99"></textarea>
+      </fieldset>
+
+      <div class="right-column">
+        <fieldset>
+          <legend>5) Contact Info</legend>
+          <label for="email" class="form-label">Email *</label>
+          <input type="email" id="email" class="form-input" name="email" required>
+          <br><br>
+          <label for="phone" class="form-label">Phone Number *</label>
+          <input type="text" id="phone" class="form-input" name="phone" pattern="\d{8,12}" placeholder="8–12 digits" required>
         </fieldset>
         <br>
 
-        <!-- Other Skills -->
-        <label for="otherskills">Please describe other skills:</label><br>
-        <textarea id="otherskills" name="otherskills" rows="4" cols="40"></textarea>
-        <br><br>
 
-        <!-- Submit and Reset-->
-        <input type= "submit" value="Submit Form">
-	    <input type= "reset" value="Reset Form">
+    </form>
+  </section>
+</main>
 
-      </form>
-    </section>
-  </main>
+<footer>
+  <hr id="fotterhr">
+  <p>&copy; 2025 Prismatics</p>
+  <p id="footerp" style="margin-top: -2.5rem;">
+    <a href="https://github.com/yourusername/prismatics_group-project">GitHub Repository</a> |
+    <a href="https://jira.example.com">Jira</a> |
+    <a href="mailto:info@companyname.com">Email Us</a>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Prismatics</p>
-    <p>
-      <a href="https://github.com/yourusername/prismatics_group-project">GitHub Repository</a> |
-      <a href="https://jira.example.com">Jira</a> |
-      <a href="mailto:info@companyname.com">Email Us</a>
-    </p>
-  </footer>
+  </p>
+</footer>
 
 </body>
 </html>
