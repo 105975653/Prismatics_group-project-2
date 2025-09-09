@@ -45,9 +45,9 @@
     <form action="formtest.php" method="post" class="form-container">
 
       <!-- Row 1: Select Job Position (alone on left) -->
-      <fieldset class="left">
-        <legend>1) Select Job Position</legend>
-        <label for="jobposition" class="form-label">Which position are you applying for? *</label>
+      <fieldset class="job-position">
+        <legend id="job-center" >1) Select Job Position</legend>
+        <label id="position-center" for="jobposition" class="form-label">Which position are you applying for? *</label>
         <select id="jobposition" class="form-input" name="jobposition" required>
           <option value="">-- Select Position --</option>
           <option value="product-architect">Product Architect (Product Team)</option>
@@ -57,7 +57,7 @@
 
       <!-- Row 2: Job & Personal Info (left) + Address (right) -->
       <fieldset class="job-personal">
-        <legend>2) Job & Personal Info</legend>
+        <legend id="job-personallegend" >2) Job & Personal Info</legend>
         <label for="jobref" class="form-label">Job Reference Number *</label>
         <input type="text" id="jobref" class="form-input" name="jobref" pattern="[A-Za-z0-9]{5}" placeholder="2HJ89 (5 characters)" required>
         <br><br>
@@ -79,7 +79,7 @@
       </fieldset>
 
       <fieldset class="address">
-        <legend>3) Address</legend>
+        <legend id="addresslegend" >3) Address</legend>
         <label for="street" class="form-label">Street Address *</label>
         <input type="text" id="street" class="form-input" name="street" maxlength="40" required>
         <br><br>
@@ -101,13 +101,18 @@
         <br><br>
         <label for="postcode" class="form-label">Postcode *</label>
         <input type="text" id="postcode" class="form-input" name="postcode" pattern="\d{4}" placeholder="3122" required>
+        <br>
+        <p>For candidates outside Australia applying for remote positions</p>
+        <label for="country" class="form-label">Country *</label>
+        <input type="text" id="country" class="form-input" name="country" maxlength="40" placeholder="Antartica" required>
         <br><br>
+
 
       </fieldset>
 
       <!-- Row 3: Skills (left) + stacked right -->
       <fieldset class="skills">
-        <legend>4) Skills</legend>
+        <legend id="skillslegend" >4) Skills</legend>
         <div class="skills-group">
           <p>Please select all skills that apply.</p>
           <label><input type="checkbox" name="skills" value="html"> HTML</label>
@@ -130,12 +135,12 @@
         <input type="range" id="designlevel" class="skill-slider" name="designlevel" min="1" max="10" value="1">
         <br><br>
         <label for="otherskills" class="form-label">Please describe other skills:</label><br>
-        <textarea id="otherskills" class="form-input" name="otherskills" rows="6" cols=99"></textarea>
+        <textarea id="otherskills" class="form-input" name="otherskills" rows="4" cols=70"></textarea>
       </fieldset>
 
       <div class="right-column">
-        <fieldset>
-          <legend>5) Contact Info</legend>
+        <fieldset class="width-control">
+          <legend id="infolegend" >5) Contact Info</legend>
           <label for="email" class="form-label">Email *</label>
           <input type="email" id="email" class="form-input" name="email" required>
           <br><br>
@@ -144,8 +149,8 @@
         </fieldset>
         <br>
 
-        <fieldset>
-          <legend>6) Preferred Working Style & Availability</legend>
+        <fieldset class="width-control">
+          <legend id="stylelegend">6) Preferred Working Style & Availability</legend>
           <label><input type="radio" name="workstyle" value="remote" required> Remote</label>
           <label><input type="radio" name="workstyle" value="hybrid"> Hybrid</label>
           <label><input type="radio" name="workstyle" value="office"> Office</label>
@@ -154,55 +159,56 @@
           <input type="date" id="startdate" class="form-input" name="startdate">
         </fieldset>
         <br>
-        <fieldset>
-          <legend>7) Upload Resume & References</legend>
-          <br>
+        <fieldset class="resumefield">
+          <legend id="resumelegend" >7) Upload Resume & References</legend>
+
+          <label for="resume" class="form-label">Upload Resume (Optional):</label><br>
           <input type="file" id="resume" class="form-input" name="resume" accept=".pdf,.doc,.docx">
           <br><br>
           <label for="references" class="form-label">References (Optional):</label><br>
-          <textarea id="references" class="form-input" name="references" rows="5" cols="95"></textarea>
+          <textarea id="references" class="form-input" name="references" rows="5" cols="55" placeholder="Example: Brock Olee, Manager at XYZ Company, BrockOlee@example.com, +61 123 456 789"></textarea>
         </fieldset>
       </div>
 
       <!-- Row 4: Hiring FAQ (left) -->
       <fieldset class="faqs">
-        <legend>Hiring FAQ</legend>
+        <legend id="faqlegend">Hiring FAQ</legend>
         <!-- details here same as original -->
         <details>
           <summary>What is the typical timeline for the hiring process?</summary>
-          <p>Our hiring process usually takes 1–2 weeks...</p>
+          <p>Our hiring process usually takes 1–2 weeks from application submission to offer. Initially, applications are screened for suitability. Qualified candidates will be contacted for a first-round interview, which may be followed by a skills assessment or technical interview depending on the role. We strive to provide timely updates at each stage.</p>
         </details>
         <details>
           <summary>Do I need prior experience to apply?</summary>
-          <p>Not necessarily! We value passion, willingness to learn, and a strong portfolio. Recent graduates and career changers are encouraged to apply.</p>
+          <p>Not necessarily! While relevant experience is valued, we also look for passion, willingness to learn, and strong problem-solving skills. Recent graduates, career changers, or individuals with strong portfolios are encouraged to apply. Demonstrated interest in the field can sometimes outweigh formal experience.</p>
         </details>
         <details>
           <summary>Can I apply for multiple positions?</summary>
-          <p>Yes! Feel free to submit separate applications for different roles that match your skills and interests.</p>
+          <p>YYes, you can submit separate applications for each role that matches your skills and interests. We recommend tailoring your resume and cover letter for each position to highlight the relevant experience and skills for that specific role.</p>
         </details>
         <details>
           <summary>What should I include in my resume?</summary>
-          <p>Include your contact information, educational background, relevant work experience, and any projects or portfolio that showcase your skills.</p>
+          <p>Your resume should include: contact information, educational background, relevant work experience, projects or portfolios, and technical or creative skills. Focus on achievements and measurable outcomes rather than just listing responsibilities. Tailoring your resume to the role you are applying for can significantly improve your chances.</p>
         </details>
         <details>
           <summary>Is remote work an option?</summary>
-          <p>We offer flexible work arrangements, including remote work, depending on the role and team needs.</p>
+          <p>Depending on the role and team, we offer flexible work arrangements, including remote and hybrid options. Some positions may require in-office attendance for collaboration or specific project requirements. We encourage applicants to indicate their preferred working style on the application form.</p>
         </details>
         <details>
           <summary>Will I need to complete a technical assessment?</summary>
-          <p>For certain positions, especially in development and design, a technical assessment may be part of the interview process to evaluate your problem-solving skills and expertise.</p>
+          <p>For certain technical and design roles, a skills assessment may be required. This helps us evaluate your problem-solving approach, technical expertise, and creativity. The assessment could include coding exercises, design tasks, or scenario-based problem-solving. You will be provided with clear instructions and deadlines if applicable.</p>
         </details>
         <details>
           <summary>How can I prepare for the interview?</summary>
-          <p>Review the job description, research our company culture, and practice common interview questions. For technical roles, be ready to discuss past projects and problem-solving approaches.</p>
+          <p>Research our company, the role you applied for, and our products or services. Review the job description thoroughly and prepare examples of past work that demonstrate your skills. For technical roles, practice coding exercises, technical questions, or design challenges. Be ready to discuss your thought process, teamwork, and problem-solving approach.</p>
         </details>
         <details>
           <summary>What happens after the interview?</summary>
-          <p>After your interview, our team will review all candidates and reach out with feedback or next steps. If selected, we’ll extend an offer and discuss onboarding.</p>
+          <p>After the interview, our hiring team reviews all candidates and evaluates performance, skills, and cultural fit. Successful candidates will be contacted with an offer or next steps, while others may receive feedback. We aim to maintain transparent communication throughout the process and provide updates within a reasonable timeframe.</p>
         </details>
       </fieldset>
 
-      <fieldset class="left">
+      <fieldset class="connected">
         <legend>Stay Connected</legend>
         <label for="newsletter" class="form-label">Sign up for our newsletter (optional):</label><br>
         <input type="email" id="newsletter" class="form-input" name="newsletter" placeholder="Enter your email">
@@ -221,13 +227,12 @@
 
 <footer>
   <hr id="fotterhr">
-  <p>&copy; 2025 Prismatics</p>
-  <p id="footerp" style="margin-top: -2.5rem;">
+  <p id="footerp">
     <a href="https://github.com/yourusername/prismatics_group-project">GitHub Repository</a> |
     <a href="https://jira.example.com">Jira</a> |
     <a href="mailto:info@companyname.com">Email Us</a>
-
   </p>
+    <p id="copy">&copy; 2025 Prismatics</p>
 </footer>
 
 </body>

@@ -7,23 +7,22 @@ body {
     background-blend-mode: multiply, overlay, normal;
     font-family: 'Merriweather', serif;
     line-height: 1.5;
-  
+    margin: 0;
+    padding: 0;
 }
-
 
 /* nav bar horizontally */
 .nav-menu li {
-  list-style-type: none;       /* remove bullets */
-  display: inline;          /* horizontal layout */
-  align-items: center;    /* vertical alignment */
+  list-style-type: none;
+  display: inline;
+  align-items: center;
   padding: 30px;
 }
 
 /* Nav bar color, boldness etc */
 .nav-menu li a {
-
-    text-decoration: none;  /* remove underline */
-    color: #000000;         /* neon green text */
+    text-decoration: none;
+    color: #000000;
     font-weight: bold;
     transition: color 0.5s, text-shadow 0.5s;
 }
@@ -31,15 +30,14 @@ body {
 /* Nav bar hovering and active link effects */
 .nav-menu li a:hover {
     color: antiquewhite;
-    text-shadow: 0 0 8px #ff0000;    /* glowing neon effect */
+    text-shadow: 0 0 8px #ff0000;
 }
 
 .nav-menu li a.active-link {
-    color: #ff0000;                   /* turn white on hover or active */
-
+    color: #ff0000;
 }
 
-/* Headings font and boldness*/
+/* Headings font and boldness */
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
@@ -53,9 +51,10 @@ h1, h2, #introm, #top-para, .nav-menu {
 
 /* Borders around nav */
 nav {
-    border: 0.2rem solid #000000;  /* neon green border */
-    padding: 10px 20px;          /* space inside the border */
-    border-radius: 8px;          /* rounded corners (optional) */
+    border: 0.2rem solid #000000;
+    margin: 0px 10px 0px 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
     background: 
     linear-gradient(123deg, #FFFCAC 0%, #FFFFFF 67%), 
     linear-gradient(180deg, #D8D8D8 0%, #ffffff 100%), 
@@ -64,122 +63,164 @@ nav {
 }
 
 fieldset {
-    border: 2px solid #000000; /* neon green */
-    border-radius: 6px;       /* optional: round the corners */
+    border: 2px solid #000000;
+    border-radius: 6px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-.job-personal {
-    width: 49%;
-    float: left;
-    height: 18rem;
-}
-
-.address {
-    max-width: 49%;
-    height: 18rem;
-}
-
-.skills { 
-    width: 49%;
-    float: left;
-    height: 30rem;
-}
-
-.faqs {
-    margin-top: none;
-}
-
-
-
+/* Buttons */
 .btn {
-  background: #000000;
-  color: #ffffff;
-  font-weight: bold;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
+    background: #000000;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 10px 0;
 }
 .btn:hover {
-  color: #10e7ff;
+  color: #929292;
 }
 .btn-reset {
-  background: #ff0000;
-  color: #fff;
+  background: #c62828;
+  color: #ffffff;
 }
 .btn-reset:hover {
-  background: #ff0000;
+  color: #929292;
 }
 
+/* Textareas */
 textarea {
-    resize: none;          /* disables resizing */
-    overflow: auto;        /* adds scrollbars if content overflows */
+    resize: none;
+    overflow: auto;
     border-radius: 8px;
     border: 1px solid #c4c4c4;
-    background-color: #c59e9e;
+    background-color: #fdfdfd;
+    width: 100%;
 }
 
-
-#footerp {
-    margin-left: 75rem;
-}
-
-footer {
-    clear: both;
-}
-
-
+/* FAQ styles */
 .faqs summary {
-    cursor: pointer;             /* show pointer on hover */
-    font-weight: 600;            /* make summary headings slightly bolder */
-    padding: 5px 10px;           /* some spacing inside */
-    transition: background 0.3s, color 0.3s,; /* smooth transition */
+    cursor: pointer;
+    font-weight: 600;
+    padding: 5px 10px;
 }
-
 .faqs summary:hover {
-    background: rgba(0, 0, 0, 0.05); /* subtle light background */
-    color: #474747;                        /* darker text color on hover */
-    text-decoration: underline;            /* optional underline for emphasis */
+    background: rgba(0, 0, 0, 0.05);
+    color: #474747;
+    text-decoration: underline;
 }
-
 .faqs details p {
-    background-color: #f9f9f9;  /* light gray */
-    border-left: 4px dashed #6b5b95;  
+    background-color: #f9f9f9;
+    border-left: 4px solid #6b5b95;  
     padding: 10px;
     border-radius: 4px;
     font-style: italic;
     color: #333;
     font-size: 0.95rem;
-    
 }
 
-legend {
-    font-weight: bold;
-    color: #000000;
-    
-}
-
-/* Below is the specific CSS for About page. */
-
-
-#starting-section {
-    float: left;
-}
-
+/* About page specific */
 .student-id {
     float: right;
-    text-align: right;      /* Align text to the right */
-    font-style: italic;     /* Optional: italic for style */
-    margin-bottom: 1rem;    /* Some space below */
-    margin-top: 1.2rem;    /* Some space below */
-    color: #555555;         /* Optional: subtle color */
+    text-align: right;
+    font-style: italic;
+    margin: 1.2rem 0 1rem 0;
+    color: #555555;
     border: 2px solid #000000;
     padding: 10px;
     box-shadow: 5px 10px 5px #aaaaaa;
-
 }
 
-#Membercontrib {
-    clear: both;
+/* Form container and layout */
+.form-container {
+    width: 94%;
+    margin: 0 auto;
 }
+
+/* Row container for two-column sections */
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* allows wrapping on smaller screens */
+    margin-bottom: 20px;
+}
+
+
+/* Columns */
+.job-personal, .skills, .address, .right-column {
+    width: 49%;
+    box-sizing: border-box;
+    float: left;
+}
+
+/* Row 1 full width */
+.job-position {
+    width: 98.3%;
+    margin-bottom: 20px;
+}
+
+/* FAQ & Newsletter full width */
+.faqs, .connected {
+    width: 98.3%;
+    margin-bottom: 20px;
+}
+
+/* Responsive for tablets/small desktops */
+@media screen and (max-width: 1024px) {
+    .job-personal, .skills, .address, .right-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 600px) {
+    .form-container {
+        width: 95%;
+        margin: 0 auto;
+    }
+    .nav-menu li {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+    }
+    fieldset {
+        width: 100%;
+    }
+    textarea {
+        width: 100%;
+    }
+}
+
+#footerp {
+    float: left;
+}
+
+#copy {
+    float: right;
+}
+
+.job-personal {
+    height: 310px
+}
+
+.address {
+    max-height: 310px;
+}
+
+#references {
+    max-height: 65px;
+}
+
+.skills {
+    height: 510px;
+}
+
+.resumefield {
+    height: 227px;
+}
+
