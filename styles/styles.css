@@ -596,7 +596,9 @@ figure {
   display: block;         /* show on hover */
 }
 
-
+#dont-show {
+  display: none;
+}
 
 
 
