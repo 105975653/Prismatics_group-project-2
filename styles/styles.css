@@ -54,7 +54,7 @@ nav {
     position: relative;
     border: 0.2rem solid #000000;
     padding: 10px 20px;
-    margin: 30px;   /* ⬅ adds 20px gap left and right */
+    margin: 30px;
     border-radius: 8px;
     background: 
     linear-gradient(123deg, #FFFCAC 0%, #FFFFFF 67%), 
@@ -63,19 +63,21 @@ nav {
     background-blend-mode: multiply, overlay, normal;
     display: flex;
     align-items: center;
-    justify-content: center; /* centers the menu */
+    justify-content: center; 
 }
+
+/* Logo for every page  */
 .logo {
-  position: absolute; /* free-floating inside nav */
+  position: absolute;
   top: 50%;
   left: 20px;
-  transform: translateY(-50%); /* centers it vertically */
-  height: 80px; /* adjust logo size */
-  mix-blend-mode: multiply; /* will blend white into background */
+  transform: translateY(-50%); 
+  height: 80px; 
+  mix-blend-mode: multiply;
 
 }
 
-/* Fieldsets */
+/* Fieldsets of apply page */
 fieldset {
     border: 2px solid #000000;
     border-radius: 6px;
@@ -83,7 +85,7 @@ fieldset {
     box-sizing: border-box;
 }
 
-/* Buttons */
+/* Buttons on apply page*/
 .btn {
     background: #000000;
     color: #ffffff;
@@ -106,6 +108,15 @@ fieldset {
     color: #929292;
 }
 
+.button-row {
+    display: flex;
+    flex: 1 1 35%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    max-width: 75%;
+    gap: 1%;
+}
+
 /* Textareas */
 textarea {
     resize: none;
@@ -117,6 +128,15 @@ textarea {
 }
 
 /* FAQ styles */
+.faqs {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    flex-wrap: nowrap;
+    justify-content: center;
+    max-width: 75%;
+}
+
 .faqs summary {
     cursor: pointer;
     font-weight: 600;
@@ -152,6 +172,8 @@ textarea {
     margin-right: 15px;
 }
 
+/* Each field set styling */
+
 .form-container {
     display: flex;
     flex-wrap: wrap;
@@ -167,7 +189,7 @@ textarea {
 }
 
 .skill-control {
-    flex: 1 1 48%; /* 48% width each, leaving some gap */
+    flex: 1 1 48%; 
     flex-wrap: wrap;
     justify-content: left;
     max-width: 37.5%;
@@ -175,30 +197,20 @@ textarea {
 }
 
 .right-column  {
-    flex: 1 1 48%; /* 48% width each, leaving some gap */
+    flex: 1 1 48%; 
     flex-wrap: wrap;
     justify-content: center;
     max-width: 37.5%;
 }
 
 
-
-
 .personal_address {
-    flex: 1 1 48%; /* 48% width each, leaving some gap */
+    flex: 1 1 48%; 
     flex-wrap: wrap;
     justify-content: center;
     max-width: 37.4%;
 }
 
-.faqs {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 100%;
-    flex-wrap: nowrap;
-    justify-content: center;
-    max-width: 75%;
-}
 
 .connected {
     display: flex;
@@ -209,24 +221,19 @@ textarea {
     max-width: 75%;
 }
 
-.button-row {
-    display: flex;
-    flex: 1 1 35%;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    max-width: 75%;
-    gap: 1%;
-}
-
 
 #newsletter {
     max-width: 200px;
 }
 
+/*  Adding styles to all fieldsets, labels, inputs etc */
+
+
 fieldset legend {
-  margin: 0 auto;       /* pushes legend to the middle */
-  font-weight: bold;    /* optional styling */
+  margin: 0 auto;       
+  font-weight: bold; 
 }
+
 
 label {
   font-style: italic;
@@ -235,69 +242,57 @@ label {
 }
 
 input {
-  color: #333;             /* text color */
+  color: #333;             
 }
+
 input::placeholder {
-  color: #676767;               /* placeholder text color */
+  color: #676767;               
   font-weight: bold;
   opacity: 70%;
 }
+
+
 /* Home page css ------------------------------------------------------------------------------------------------------------------------*/
 
-.logohome {
-    position: absolute; /* free-floating inside nav */
-    top: 25%;
-    left: 20px;
-    transform: translateY(-50%); /* centers it vertically */
-    height: 80px; /* adjust logo size */
-    mix-blend-mode: multiply; /* will blend white into background */
-}
+
+/* Styling all paras a bit */
 
 .home-intro {
   display: flex;
-  gap: 20px;                     /* spacing between text and image */
+  gap: 20px;                
   margin-top: 20px;
 }
 
+/* fonts for all description class  */
+
 .description {
-  font-family: 'Merriweather', serif;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-left: 35px;
-  max-width: 60%;                /* text width */
+  font-family: 'Merriweather', serif;           
 }
 
-#image img {
+/* Images  */
+
+#image, #image2 img {
     margin-top: 20px;
-    width: 50%;                 /* image width */
+    width: 50%;                
     height: auto;
 }
-
-#image2 img {
-    margin-top: 20px;
-    width: 50%;                 /* image width */
-    height: auto;
-}
-
 
 
 img.same-size {
-    
-    width: 70%;   /* set desired width */
-    height: 30%;  /* set desired height */
-    object-fit: cover; /* ensures image fills the area and crops if needed */
-    
+    width: 70%;  
+    height: 30%;  
+    object-fit: cover; 
 }
 
 .image-wrapper {
     display: flex;
-    justify-content: space-around; /* pushes the images to the right */
-    gap: 10px;                 /* 10px space between the two images */
+    justify-content: space-around; 
+    gap: 10px;  
 }
 
 header img.logo {
-  width: 60px;   /* adjust size */
-  height: auto;  /* keeps proportions */
+  width: 60px;   
+  height: auto;  
 }
 
 .home-para:hover {
@@ -307,7 +302,6 @@ header img.logo {
 }
 
 
-
 /* Description page css --------------------------------------------------------------------------------------------------------------*/
 
 
@@ -315,25 +309,22 @@ header img.logo {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 5%; /* Space between left and right sections */
+  gap: 5%;
   padding: 20px;
   margin: 0 80px 0 80px;
 }
 
-/* Left Section (Jobs) */
 .main-content {
-  flex: 0 0 100%; /* Occupies 60% of width */
+  flex: 0 0 100%;
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
 
-
-/* Intro Section */
 .intro-title {
   font-size: 2rem;
-  color: #0d47a1; /* dark blue */
+  color: #0d47a1; 
   margin-bottom: 10px;
 }
 
@@ -345,7 +336,7 @@ header img.logo {
 .job {
   border-top: 4px solid ;
   border-left: 4px solid ;
-  background-color: #fffdd0; /* light grey */
+  background-color: #fffdd0; 
   border-radius: 12px;
   box-shadow: 0 4px 8px rgb(46, 46, 46);
   padding: 25px;
@@ -361,7 +352,7 @@ header img.logo {
 /* Job Titles */
 .job-title {
   font-size: 1.5rem;
-  color: #1976d2; /* medium blue */
+  color: #1976d2; 
   margin-bottom: 10px;
 }
 
@@ -397,7 +388,7 @@ header img.logo {
   width: 55%;
   border-top: 4px solid ;
   border-left: 4px solid ;
-  background-color: #fffdd0; /* light grey */
+  background-color: #fffdd0;
   border-radius: 12px;
   box-shadow: 0 1px 2px rgb(46, 46, 46);
   padding: 5px;
@@ -413,7 +404,7 @@ aside {
   float: right;
   border-top: 4px solid black ;
   border-left: 4px solid black;
-  background-color: #fffddf; /* soft teal background */
+  background-color: #fffddf; 
   border-radius: 12px;
   padding: 20px 25px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
@@ -438,7 +429,6 @@ aside ul li {
   color: #303030; 
 }
 
-/* Optional: subtle hover effect on bullets */
 aside ul li:hover {
   background-color: rgb(255, 252, 151);
   padding-left: 5px;
@@ -447,21 +437,17 @@ aside ul li:hover {
 
 
 
-
-
-
-
 /* About page css ------------------------------------------------------------------------------------------------------------*/
 
 
-/* Student IDs aligned to the right using flexbox */
+/* Student IDs aligned to the right */
 .group-flex {
     display: flex;
-    justify-content: space-between; /* push content to the right */
+    justify-content: space-between; 
     font-weight: bold;
     border: 0.2rem double #424242;
     padding: 5px 10px;
-    margin: 10px;   /* ⬅ adds 20px gap left and right */
+    margin: 10px; 
     border-radius: 8px;
     color: #424242;
 }
@@ -508,12 +494,12 @@ figure {
 }
 
 .fun-facts th {
-  background-color: #e0f7fa; /* hex */
+  background-color: #e0f7fa; 
   font-weight: bold;
 }
 
 .fun-facts tr:hover {
-  background-color: #f1f8e9; /* hex hover */
+  background-color: #f1f8e9; 
 }
 
 /* Member Contributions Section */
@@ -543,7 +529,7 @@ figure {
 
 /* Quote box */
 .member-card dd {
-    flex: 1; /* take available space */
+    flex: 1; 
     background-color: #fff;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -585,15 +571,15 @@ figure {
 }
 
 .hidden-note {
-  position: relative;       /* place on the same line as content */
+  position: relative;      
   width: 30%;
-  display: none;               /* initially hidden */
+  display: none;              
   font-style: italic;
 }
 
 
 .member-card:hover .hidden-note {
-  display: block;         /* show on hover */
+  display: block;      
 }
 
 #dont-show {
@@ -602,7 +588,7 @@ figure {
 
 
 
-/* Responsive for tablets/small desktops */
+/* Responsive for All various dimentions */
 @media screen and (max-width: 1024px) {
     .skill-control, .personal-address, .right-column {
         width: 100%;
@@ -621,7 +607,6 @@ figure {
 
 }
 
-/* Responsive for tablets/small desktops */
 @media screen and (max-width: 1424px) {
     .did-you-know {
       width: 83%;
@@ -637,10 +622,9 @@ figure {
 
 }
 
-/* Mobile responsiveness */
 @media screen and (max-width: 600px) {
     .form-container {
-        flex-direction: column; /* stack all children vertically */
+        flex-direction: column; 
         align-items: center;
         width: 95%;
         margin: 0 auto;
@@ -660,7 +644,7 @@ figure {
     }
 
     .button-row {
-        flex-direction: column; /* buttons stacked */
+        flex-direction: column;
         align-items: center;
         gap: 10px;
     }
@@ -703,7 +687,7 @@ figure {
     }
 
       .group-photo {
-    max-width: 90%; /* image shrinks on small screens */
+    max-width: 90%;
   }
 
   figure figcaption {
@@ -716,31 +700,6 @@ figure {
     #main-container {
   margin: 0;
 }
-
-}
-
-
-@media screen and (max-width: 1900px) {
-  .home-intro {
-    flex-direction: column;       /* stack text above image */
-    align-items: center;
-  }
-
-   #image img {
-    max-width: 100%;               /* fit both in small screens */
-  }
-  .description {
-  font-family: 'Merriweather', serif;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-left: 35px;
-  max-width: 90%;                /* text width */
-}
-
-
-}
-@media screen and (max-width: 900px) {
-
   .hidden-note {
     position: static;  
     display: none;   
@@ -751,5 +710,25 @@ figure {
     position: static;       
     max-width: 100%;   
   }
+
+}
+
+
+@media screen and (max-width: 1900px) {
+  .home-intro {
+    flex-direction: column;       
+    align-items: center;
+  }
+
+   #image img {
+    max-width: 100%;               
+  }
+  .description {
+  font-family: 'Merriweather', serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-left: 35px;
+  max-width: 90%;      
+}
 
 }
