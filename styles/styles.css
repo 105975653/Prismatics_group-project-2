@@ -1,5 +1,6 @@
 /* Body and general layout + Apply page ------------------------------------------------------------------------------------------ */
 body {
+    /* the linear background combo was found at https://www.gradientmagic.com/ */
     background: 
     linear-gradient(123deg, #FFFCAC 0%, #FFFFFF 67%), 
     linear-gradient(180deg, #D8D8D8 0%, #ffffff 100%), 
@@ -15,7 +16,6 @@ body {
 .nav-menu li {
     list-style-type: none;
     display: inline;
-    align-items: center;
     padding: 30px;
 }
 
@@ -24,7 +24,7 @@ body {
     text-decoration: none;
     color: #000000;
     font-weight: bold;
-    transition: color 0.5s, text-shadow 0.5s;
+    transition: color 0.7s, text-shadow 0.5s;
 }
 
 /* Nav bar hovering and active link effects */
@@ -69,12 +69,9 @@ nav {
 /* Logo for every page  */
 .logo {
   position: absolute;
-  top: 50%;
   left: 20px;
-  transform: translateY(-50%); 
   height: 80px; 
   mix-blend-mode: multiply;
-
 }
 
 /* Fieldsets of apply page */
@@ -180,13 +177,6 @@ textarea {
     justify-content: center;
 }
 
-.job-position {
-    display: flex;
-    flex: 1 1 100%;
-    flex-wrap: nowrap;
-    justify-content: center;
-    max-width: 75%;
-}
 
 .skill-control {
     flex: 1 1 48%; 
@@ -281,7 +271,7 @@ input::placeholder {
 img.same-size {
     width: 70%;  
     height: 30%;  
-    object-fit: cover; 
+    object-fit:cover; 
 }
 
 .image-wrapper {
@@ -554,13 +544,6 @@ figure {
     color: #555;
 }
 
-/* Code styling */
-.member-card dd code {
-    background-color: #f1f1f1;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: monospace;
-}
 
 /* Image next to card */
 .member-img img {
@@ -644,7 +627,6 @@ figure {
     }
 
     .button-row {
-        flex-direction: column;
         align-items: center;
         gap: 10px;
     }
