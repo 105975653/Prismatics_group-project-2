@@ -20,6 +20,7 @@
   <!-- External Font -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- Internal CSS example -->
   <style>
     body {
       background-color: #f5f5f5;
@@ -66,7 +67,7 @@
 
       <!-- Job & Personal Info -->
       <fieldset class="personal_address">
-        <legend id="job-personallegend" >1) Job & Personal Info</legend>
+        <legend id="job-personallegend">1) Job & Personal Info</legend>
         <label for="jobref" class="form-label">Job Reference Number *</label>
         <input type="text" id="jobref" class="form-input" name="jobref" pattern="[A-Za-z0-9]{5}" placeholder="PM32X (5 characters)" required>
         <br><br>
@@ -81,9 +82,14 @@
         <br><br>
         <fieldset class="form-section">
           <legend>Gender *</legend>
-          <label><input type="radio" name="gender" value="male" required> Male</label>
-          <label><input type="radio" name="gender" value="female"> Female</label>
-          <label><input type="radio" name="gender" value="other"> Other</label>
+          <input type="radio" id="male" name="gender" value="male" required>
+          <label for="male">Male</label>
+
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Female</label>
+
+          <input type="radio" id="other" name="gender" value="other">
+          <label for="other">Other</label>
         </fieldset>
       </fieldset>
 
