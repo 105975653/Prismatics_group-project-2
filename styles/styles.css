@@ -24,6 +24,8 @@ body {
     text-decoration: none;
     color: #000000;
     font-weight: bold;
+    /* The transition tricks were learnt from youtube - https://www.youtube.com/@BroCodez/videos */
+
     transition: color 0.7s, text-shadow 0.5s;
 }
 
@@ -322,6 +324,8 @@ header img.logo {
   font-size: 1.1rem;
 }
 
+
+
 /* Job Section Box */
 .job {
   border-top: 4px solid ;
@@ -330,6 +334,7 @@ header img.logo {
   border-radius: 12px;
   box-shadow: 0 4px 8px rgb(46, 46, 46);
   padding: 25px;
+  /* The transition, transform, box-shadow tricks were also learnt from youtube - https://www.youtube.com/@BroCodez/videos */
   transition: transform 0.3s, box-shadow 0.3s;
   margin: 10px;
 }
@@ -470,7 +475,6 @@ figure {
 }
 
 .fun-facts caption {
-  caption-side: top;
   font-weight: bold;
   margin-bottom: 10px;
   font-size: 1.2em;
