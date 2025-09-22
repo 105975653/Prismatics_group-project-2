@@ -8,7 +8,7 @@ The website is built using HTML5 and CSS only (no JavaScript or frameworks) and 
 
 Features
 
-1) Homepage (home.html)
+1) Homepage (index.html)
 2) Jobs Page (jobs.html)
 3) Application Form (apply.html)
 4) About Page (about.html)
