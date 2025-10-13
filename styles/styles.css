@@ -99,10 +99,7 @@ fieldset {
 .btn:hover {
     color: #929292;
 }
-.btn-reset {
-    background: #c62828;
-    color: #ffffff;
-}
+
 .btn-reset:hover {
     color: #929292;
 }

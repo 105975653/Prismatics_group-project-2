@@ -131,11 +131,12 @@
         <legend id="skillslegend" >3) Skills</legend>
         <div class="skills-group">
           <p>Please select all skills that apply.</p>
-          <label><input type="checkbox" name="skills" value="html"> HTML</label>
-          <label><input type="checkbox" name="skills" value="css"> CSS</label>
-          <label><input type="checkbox" name="skills" value="javascript"> JavaScript</label>
-          <label><input type="checkbox" name="skills" value="design"> UI/UX Design</label>
-          <label><input type="checkbox" name="skills" value="other"> Other skills…</label>
+          <!-- Made improvment from project 1 by adding "skills[]" so now its properly sent -->
+          <label><input type="checkbox" name="skills[]" value="html"> HTML</label>
+          <label><input type="checkbox" name="skills[]" value="css"> CSS</label>
+          <label><input type="checkbox" name="skills[]" value="javascript"> JavaScript</label>
+          <label><input type="checkbox" name="skills[]" value="design"> UI/UX Design</label>
+          <label><input type="checkbox" name="skills[]" id="otherskills" value="other"> Other skills…</label>
         </div>
         <p>Rate your skill level for the skills you checked <br>(1 = Beginner, 10 = Expert):</p>
         <label for="htmllevel">HTML:</label>
@@ -245,7 +246,8 @@
       <!-- Submit/reset -->
       <div class="button-row">
         <button type="submit" class="btn">🚀 Send My Application</button>
-        <button type="reset" class="btn btn-reset">Reset Form</button>
+        <!-- Added one inline css to complete CSS requirement from Assignment 1 -->
+        <button type="reset" style="background: #c62828; color: #ffffff; font-weight: bold; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; transition: background 0.3s; margin: 10px 0;">Reset Form</button>     
       </div>
 
     </form>
