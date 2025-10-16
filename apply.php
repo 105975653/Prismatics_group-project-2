@@ -28,8 +28,6 @@
   </style>
 </head>
 
-
-      
 <!-- Body -->
 <body>
 
@@ -39,22 +37,18 @@
     <h1>Prismatics Recruitment Portal</h1>
   </div>
   <p id="top-para">Strengthening our product and design team through tech talent</p>
-      
-  
-  
+</header>
+
 <!-- Navigation bar -->
 <nav>
   <img src="images/logo3.png" alt="Prismatics Logo" title="Prismatic Logo" class="logo">
   <ul class="nav-menu">
     <li><a href="index.html">Home</a></li>
     <li><a href="jobdesc.html">Jobs</a></li>
-    <li><a href="apply.html" class="active-link">Apply</a></li>
+    <li><a href="apply.php" class="active-link">Apply</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
 </nav>
-</header>
-      
-
 
 <!-- Main -->
 <main>
@@ -63,7 +57,7 @@
     <p id="introm">👋 We’re excited that you’re here! Please follow the steps below to send us your application. Fields marked with * are required.</p>
 
     <!-- Main Form Container -->
-    <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post" class="form-container">
+    <form action="process_eoi.php" method="post" class="form-container" enctype="multipart/form-data" novalidate>
 
       <!-- Job & Personal Info -->
       <fieldset class="personal_address">
@@ -93,10 +87,9 @@
         </fieldset>
       </fieldset>
 
-
       <!-- Address -->
       <fieldset class="personal_address">
-        <legend id="addresslegend" >2) Address</legend>
+        <legend id="addresslegend">2) Address</legend>
         <label for="street" class="form-label">Street Address *</label>
         <input type="text" id="street" class="form-input" name="street" maxlength="40" placeholder="353 burwood rd" required>
         <br><br>
@@ -121,17 +114,15 @@
         <br>
         <p>For candidates outside Australia applying for remote positions</p>
         <label for="country" class="form-label">Country *</label>
-        <input type="text" id="country" class="form-input" name="country" maxlength="40" placeholder="Antartica" required>
+        <input type="text" id="country" class="form-input" name="country" maxlength="40" placeholder="Antarctica" required>
         <br><br>
       </fieldset>
 
-
       <!-- Skills -->
       <fieldset class="skill-control">
-        <legend id="skillslegend" >3) Skills</legend>
+        <legend id="skillslegend">3) Skills</legend>
         <div class="skills-group">
           <p>Please select all skills that apply.</p>
-          <!-- Made improvment from project 1 by adding "skills[]" so now its properly sent -->
           <label><input type="checkbox" name="skills[]" value="html"> HTML</label>
           <label><input type="checkbox" name="skills[]" value="css"> CSS</label>
           <label><input type="checkbox" name="skills[]" value="javascript"> JavaScript</label>
@@ -155,11 +146,10 @@
         <textarea id="otherskills" class="form-input" name="otherskills" rows="4" cols="70"></textarea>
       </fieldset>
 
-
       <!-- Contact info -->
       <div class="right-column">
         <fieldset class="width-control">
-          <legend id="infolegend" >4) Contact Info</legend>
+          <legend id="infolegend">4) Contact Info</legend>
           <label for="email" class="form-label">Email *</label>
           <input type="email" id="email" class="form-input" name="email" placeholder="brockOLee@gmail.com" required>
           <br><br>
@@ -167,7 +157,6 @@
           <input type="text" id="phone" class="form-input" name="phone" pattern="\d{8,12}" placeholder="8–12 digits" required>
         </fieldset>
         <br>
-
 
         <!-- Working style and Availability -->
         <fieldset class="width-control">
@@ -183,10 +172,9 @@
           <input type="date" id="startdate" class="form-input" name="startdate">
         </fieldset>
 
-
         <!-- Resume and Reference -->
         <fieldset class="width-control">
-          <legend id="resumelegend" >6) Upload Resume & References</legend>
+          <legend id="resumelegend">6) Upload Resume & References</legend>
 
           <label for="resume" class="form-label">Upload Resume (Optional):</label><br>
           <input type="file" id="resume" class="form-input" name="resume" accept=".pdf,.doc,.docx">
@@ -196,45 +184,6 @@
         </fieldset>
       </div>
 
-      <!-- Hiring FAQ  -->
-      <fieldset class="faqs">
-        <legend id="faqlegend">Hiring FAQ</legend>
-        <!-- Neat HTML trick learnt from youtube - https://www.youtube.com/@BroCodez/videos  -->
-        <details>
-          <summary>What is the typical timeline for the hiring process?</summary>
-          <p>Our hiring process usually takes 1–2 weeks from application submission to offer. Initially, applications are screened for suitability. Qualified candidates will be contacted for a first-round interview, which may be followed by a skills assessment or technical interview depending on the role. We strive to provide timely updates at each stage.</p>
-        </details>
-        <details>
-          <summary>Do I need prior experience to apply?</summary>
-          <p>Not necessarily! While relevant experience is valued, we also look for passion, willingness to learn, and strong problem-solving skills. Recent graduates, career changers, or individuals with strong portfolios are encouraged to apply. Demonstrated interest in the field can sometimes outweigh formal experience.</p>
-        </details>
-        <details>
-          <summary>Can I apply for multiple positions?</summary>
-          <p>YYes, you can submit separate applications for each role that matches your skills and interests. We recommend tailoring your resume and cover letter for each position to highlight the relevant experience and skills for that specific role.</p>
-        </details>
-        <details>
-          <summary>What should I include in my resume?</summary>
-          <p>Your resume should include: contact information, educational background, relevant work experience, projects or portfolios, and technical or creative skills. Focus on achievements and measurable outcomes rather than just listing responsibilities. Tailoring your resume to the role you are applying for can significantly improve your chances.</p>
-        </details>
-        <details>
-          <summary>Is remote work an option?</summary>
-          <p>Depending on the role and team, we offer flexible work arrangements, including remote and hybrid options. Some positions may require in-office attendance for collaboration or specific project requirements. We encourage applicants to indicate their preferred working style on the application form.</p>
-        </details>
-        <details>
-          <summary>Will I need to complete a technical assessment?</summary>
-          <p>For certain technical and design roles, a skills assessment may be required. This helps us evaluate your problem-solving approach, technical expertise, and creativity. The assessment could include coding exercises, design tasks, or scenario-based problem-solving. You will be provided with clear instructions and deadlines if applicable.</p>
-        </details>
-        <details>
-          <summary>How can I prepare for the interview?</summary>
-          <p>Research our company, the role you applied for, and our products or services. Review the job description thoroughly and prepare examples of past work that demonstrate your skills. For technical roles, practice coding exercises, technical questions, or design challenges. Be ready to discuss your thought process, teamwork, and problem-solving approach.</p>
-        </details>
-        <details>
-          <summary>What happens after the interview?</summary>
-          <p>After the interview, our hiring team reviews all candidates and evaluates performance, skills, and cultural fit. Successful candidates will be contacted with an offer or next steps, while others may receive feedback. We aim to maintain transparent communication throughout the process and provide updates within a reasonable timeframe.</p>
-        </details>
-      </fieldset>
-      
-      
       <!-- Stay Connected -->
       <fieldset class="connected">
         <legend>Stay Connected</legend>
@@ -246,15 +195,12 @@
       <!-- Submit/reset -->
       <div class="button-row">
         <button type="submit" class="btn">🚀 Send My Application</button>
-        <!-- Added one inline css to complete CSS requirement from Assignment 1 -->
         <button type="reset" style="background: #c62828; color: #ffffff; font-weight: bold; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; transition: background 0.3s; margin: 10px 0;">Reset Form</button>     
       </div>
 
     </form>
   </section>
 </main>
-
-
 
 <!-- Footer -->
 <footer>
@@ -264,7 +210,8 @@
     <a href="https://officialfarhan155.atlassian.net/jira/software/projects/PG/boards/67?atlOrigin=eyJpIjoiMzhlODY4NzlkNjRjNGU2OThlZjA5ZDBlMWUzMTMxNzQiLCJwIjoiaiJ9" target="_blank">Jira</a> |
     <a href="mailto:info@companyname.com">Email Us</a>
   </p>
-    <p id="copy">&copy; 2025 Prismatics</p>
+  <p id="copy">&copy; 2025 Prismatics</p>
 </footer>
+
 </body>
 </html>

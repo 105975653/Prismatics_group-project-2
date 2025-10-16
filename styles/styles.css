@@ -572,40 +572,6 @@ figure {
 
 
 
-/* Responsive for All various dimentions */
-@media screen and (max-width: 1024px) {
-    .skill-control, .personal-address, .right-column {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .did-you-know {
-      width: 75%;
-      margin: auto;
-      margin-top: 15px;
-    }
-    aside {
-      width: 75%;
-      float: none;
-      margin: auto;
-    }
-
-}
-
-@media screen and (max-width: 1424px) {
-    .did-you-know {
-      width: 83%;
-      margin: auto;
-      margin-top: 15px;
-    }
-    aside {
-      width: 80%;
-      float: none;
-      margin: auto;
-    }
-
-
-}
-
 @media screen and (max-width: 600px) {
     .form-container {
         flex-direction: column; 
