@@ -187,9 +187,18 @@ mysqli_close($conn);
 <meta charset="UTF-8">
 <title>Application Submitted</title>
 <style>
-body{font-family:Arial,sans-serif;background:linear-gradient(to bottom, #f5f7fa, #c3cfe2);margin:0;padding:0;}
+body{font-family:Arial,sans-serif;background: 
+    linear-gradient(123deg, #FFFCAC 0%, #FFFFFF 67%), 
+    linear-gradient(180deg, #D8D8D8 0%, #ffffff 100%), 
+    linear-gradient(142deg, #F9F5F0 0%, #F9F5F0 33%, #F2EAD3 calc(33% + 1px), #F2EAD3 56%, #ffbcbc calc(56% + 1px), #ffbcbc 62%, #d57cff calc(62% + 1px), #e5adff 100%);
+    background-blend-mode: multiply, overlay, normal
+    ;margin:0;padding:0;}
 .conf-page{display:flex;justify-content:center;align-items:center;height:100vh;}
-.conf-card{background:#fff;padding:40px 30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.3);text-align:center;max-width:500px;width:90%;}
+.conf-card{background: 
+    linear-gradient(123deg, #FFFCAC 0%, #FFFFFF 67%), 
+    linear-gradient(180deg, #D8D8D8 0%, #ffffff 100%), 
+    linear-gradient(142deg, #F9F5F0 0%, #F9F5F0 33%, #F2EAD3 calc(33% + 1px), #F2EAD3 56%, #ffbcbc calc(56% + 1px), #ffbcbc 62%, #d57cff calc(62% + 1px), #e5adff 100%);
+    background-blend-mode: multiply, overlay, normal;padding:40px 30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.3);text-align:center;max-width:500px;width:90%;}
 .conf-card h1{margin-bottom:20px;font-size:28px;}
 .conf-card p{margin-bottom:15px;font-size:16px;}
 .btn{margin-top:20px;padding:12px 25px;border:none;border-radius:6px;background:#1976d2;color:#fff;font-size:16px;cursor:pointer;}

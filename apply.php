@@ -44,7 +44,7 @@
   <img src="images/logo3.png" alt="Prismatics Logo" title="Prismatic Logo" class="logo">
   <ul class="nav-menu">
     <li><a href="index.html">Home</a></li>
-    <li><a href="jobdesc.html">Jobs</a></li>
+    <li><a href="jobs.php">Jobs</a></li>
     <li><a href="apply.php" class="active-link">Apply</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
