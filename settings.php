@@ -4,7 +4,7 @@
 $DB_HOST = 'localhost';
 $DB_USER = 'root';
 $DB_PASS = '';            // brief says no password locally
-$DB_NAME = '';  // 
+$DB_NAME = 'jobs_db';  // 
 
 // Turn on mysqli exceptions (easier errors)
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
