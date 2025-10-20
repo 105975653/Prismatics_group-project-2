@@ -123,7 +123,7 @@
         <legend id="skillslegend">3) Skills</legend>
         <div class="skills-group">
           <p>Please select all skills that apply.</p>
-          <!-- improvement from task 1 - added the [] -->
+          <!-- improvement from assignment 1 - added the [] -->
           <label><input type="checkbox" name="skills[]" value="html"> HTML</label>
           <label><input type="checkbox" name="skills[]" value="css"> CSS</label>
           <label><input type="checkbox" name="skills[]" value="javascript"> JavaScript</label>

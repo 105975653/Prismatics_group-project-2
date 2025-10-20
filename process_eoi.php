@@ -13,10 +13,10 @@ function clean_input($data) {
 }
 
 // Database connection
-$conn = @mysqli_connect($host, $user, $pwd);
+$conn = @mysqli_connect($DB_HOST, $DB_USER, $DB_PASS);
 if (!$conn) die("<p>Database connection failure.</p>");
-@mysqli_query($conn, "CREATE DATABASE IF NOT EXISTS $sql_db");
-mysqli_select_db($conn, $sql_db);
+@mysqli_query($conn, "CREATE DATABASE IF NOT EXISTS $DB_NAME");
+mysqli_select_db($conn, $DB_NAME);
 
 // Create table if not exists
 $create_table_sql = "
@@ -74,6 +74,15 @@ $otherskills = isset($_POST['otherskills']) ? clean_input($_POST['otherskills'])
 $newsletter  = !empty($_POST['newsletter']) ? clean_input($_POST['newsletter']) : 'No';
 $references  = isset($_POST['references']) ? clean_input($_POST['references']) : '';
 
+// in the above where we use isset or !empty, the difference is the way they are sent from apply.php
+// for all required fields I used isset but since isset only checks for null value its not accurate for the inpuy type="text"
+// that's because from my research I've found that type="text" or type="date" (from FORMs in html) that even if 
+// they are left empty it gets passed by isset function because it gets posted as "" quote values and that is not null 
+// hence isset itself is not enough and for safety i add !empty alongside the pattern validation. 
+// and thats also the reason why I didn't use isset in startdate and newsletter because if the user gives no data for startdate 
+// isset would still assume data is given as the data coming from POST would be like "" the quotes which is not null.
+
+
 // Validation
 $errors = [];
 
@@ -110,7 +119,7 @@ $valid_states = ['VIC','NSW','QLD','NT','WA','SA','TAS','ACT'];
 if(!empty($state) && !in_array($state, $valid_states)) $errors[] = "Invalid state selected.";
 if(!empty($postcode) && !preg_match("/^\d{4}$/", $postcode)) $errors[] = "Postcode must be 4 digits.";
 
-// Convert DOB to MySQL DATE format if valid
+// Convert DOB to MySQL DATE format if valid to ensure no error 
 if(empty($errors)) {
     $dob_parts = explode("/", $dob_raw);
     $dob = $dob_parts[2] . "-" . $dob_parts[1] . "-" . $dob_parts[0];
@@ -118,10 +127,11 @@ if(empty($errors)) {
     $dob = null;
 }
 
-// Resume upload (optional)
+// Resume upload ( used AI for help in how to store PDF or any files )
 $resumePath = '';
 $uploadDir = 'uploads/';
-if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
+if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true); 
+// creates the uploads folder but first checks if one is already existing or in other(mysql) words - create folder if not exists uploads -  
 
 if (isset($_FILES['resume']) && $_FILES['resume']['error'] != UPLOAD_ERR_NO_FILE) {
     $file = $_FILES['resume'];
@@ -130,7 +140,7 @@ if (isset($_FILES['resume']) && $_FILES['resume']['error'] != UPLOAD_ERR_NO_FILE
         'application/msword',
         'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
     ];
-    $maxSize = 5*1024*1024; // 5MB
+    $maxSize = 5*1024*1024; // 5MB ensuring size is less and not too much
 
     if (!in_array($file['type'], $allowedTypes)) $errors[] = "Resume must be PDF or Word document.";
     if ($file['size'] > $maxSize) $errors[] = "Resume file must be <= 5MB.";
@@ -162,7 +172,7 @@ if (!empty($errors)) {
     exit();
 }
 
-// Insert record
+// Insert record using prepared statements to prevent SQL injection
 $query = "INSERT INTO eoi (job_ref, first_name, last_name, dob, gender, street, suburb, state, postcode, country, email, phone, workstyle, startdate, skills, htmllevel, csslevel, jslevel, designlevel, otherskills, resume, `references`, newsletter)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 

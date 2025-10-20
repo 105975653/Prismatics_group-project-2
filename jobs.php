@@ -2,16 +2,16 @@
 require_once("settings.php");
 
 // Database connection (safe version)
-$conn = @mysqli_connect($host, $user, $pwd);
+$conn = @mysqli_connect($DB_HOST, $DB_USER, $DB_PASS);
 if (!$conn) {
     die("<p>❌ Could not connect to MySQL server.</p>");
 }
 
 // Ensure database exists (creates it automatically if missing)
-@mysqli_query($conn, "CREATE DATABASE IF NOT EXISTS $sql_db");
+@mysqli_query($conn, "CREATE DATABASE IF NOT EXISTS $DB_NAME");
 
 // Select the database
-if (!@mysqli_select_db($conn, $sql_db)) {
+if (!@mysqli_select_db($conn, $DB_NAME)) {
     die("<p>❌ Database selection failed.</p>");
 }
 
