@@ -123,6 +123,7 @@
         <legend id="skillslegend">3) Skills</legend>
         <div class="skills-group">
           <p>Please select all skills that apply.</p>
+          <!-- improvement from task 1 - added the [] -->
           <label><input type="checkbox" name="skills[]" value="html"> HTML</label>
           <label><input type="checkbox" name="skills[]" value="css"> CSS</label>
           <label><input type="checkbox" name="skills[]" value="javascript"> JavaScript</label>
@@ -195,6 +196,7 @@
       <!-- Submit/reset -->
       <div class="button-row">
         <button type="submit" class="btn">🚀 Send My Application</button>
+        <!-- improvement from Assignment 1 - added inline css to complete css requirement -->
         <button type="reset" style="background: #c62828; color: #ffffff; font-weight: bold; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; transition: background 0.3s; margin: 10px 0;">Reset Form</button>     
       </div>
 
