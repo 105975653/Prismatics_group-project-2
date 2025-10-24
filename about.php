@@ -1,3 +1,16 @@
+<?php
+// Load DB helper and fetch member contributions from jobs_db.about
+require_once __DIR__ . '/db.php';
+
+try {
+  $rows = db()->query(
+    'SELECT Student_ID, Name, Contribution_part1, Contribution_part2 FROM about ORDER BY Student_ID'
+  )->fetchAll();
+} catch (Throwable $e) {
+  // Fail soft so the page layout still renders
+  $rows = [];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,20 +30,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    #farhan-color {
-      color: #ff0000;
-      }
+    #farhan-color { color: #ff0000; }
+    #thisum-color { color: #0400ff; }
+    #chamathka-color { color: #ee00ff; }
 
-    #thisum-color {
-      color: #0400ff;
-      }
-
-    #chamathka-color {
-      color: #ee00ff;
-      }
+    /* minimal styles for the DB table; does not affect your layout */
+    .db-contrib{margin:24px 0}
+    .db-contrib table{width:100%;border-collapse:collapse}
+    .db-contrib th,.db-contrib td{padding:10px;border-bottom:1px solid #1f2937;vertical-align:top}
+    .db-contrib th{text-align:left;opacity:.9}
+    .db-badge{display:inline-block;background:#1f2937;border:1px solid #263244;border-radius:8px;padding:4px 8px}
+    .wrap{white-space:pre-line}
   </style>
-
-
 </head>
 <body>
 
@@ -44,10 +55,11 @@
 <nav>
   <img src="images/logo3.png" alt="Prismatic Logo" title="Prismatics Logo" class="logo">
   <ul class="nav-menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="jobdesc.html">Jobs</a></li>
-    <li><a href="apply.html">Apply</a></li>
-    <li><a href="about.html" class="active-link" >About</a></li>
+    <!-- If your pages are still .html, swap .php back to .html -->
+    <li><a href="index.php">Home</a></li>
+    <li><a href="jobs.php">Jobs</a></li>
+    <li><a href="apply.php">Apply</a></li>
+    <li><a href="about.php" class="active-link">About</a></li>
   </ul>
 </nav>
 </header>
@@ -85,6 +97,36 @@
   </figure>
 </section>
 
+<!-- DB-driven contributions table (inserted; layout around it unchanged) -->
+<section class="db-contrib">
+  <h2>Member Contributions (Loaded from Database)</h2>
+  <p class="db-badge">Source: jobs_db.about</p>
+
+  <?php if (!$rows): ?>
+    <p>No records yet. Add rows in phpMyAdmin → jobs_db → about.</p>
+  <?php else: ?>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:120px;">Student ID</th>
+          <th style="width:240px;">Name</th>
+          <th>Project 1</th>
+          <th>Project 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($rows as $r): ?>
+          <tr>
+            <td><?= htmlspecialchars($r['Student_ID']) ?></td>
+            <td><?= htmlspecialchars($r['Name']) ?></td>
+            <td class="wrap"><?= nl2br(htmlspecialchars($r['Contribution_part1'])) ?></td>
+            <td class="wrap"><?= nl2br(htmlspecialchars($r['Contribution_part2'])) ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  <?php endif; ?>
+</section>
 
 <!-- Member Contributions -->
 <section id="Membercontrib">
@@ -164,9 +206,6 @@
   </div>
 
 </section>
-
-
-
 
 <!-- Fun Facts Table -->
 <section>
