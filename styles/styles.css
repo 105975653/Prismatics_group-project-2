@@ -39,6 +39,8 @@ body {
     color: #ff0000;
 }
 
+
+
 /* Headings font and boldness */
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
@@ -584,6 +586,298 @@ figure {
 
 #dont-show {
   display: none;
+}
+
+/* Prismatics HR Manager Dashboard Styles */ ---------------------------------------------------------------------------------------------------------------------------
+
+/* Background */
+#manage-page {
+  background:
+    linear-gradient(180deg, #D8D8D8 0%, #ffffff 100%),
+    linear-gradient(142deg, #F9F5F0 0%, #F9F5F0 33%, #F2EAD3 calc(33% + 1px), #F2EAD3 56%, #ffbcbc calc(56% + 1px), #ffbcbc 62%, #d57cff calc(62% + 1px), #e5adff 100%);
+  background-blend-mode: multiply, overlay, normal;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Merriweather", serif;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  min-height: 95vh;
+}
+
+/* Headings */
+.welcome-text {
+  text-align: center;
+  margin-top: 25px;
+  color: #333;
+}
+
+h3 {
+  color: #333;
+  margin-top: 30px;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn {
+  background-color: #ff6666;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  
+}
+
+.btn:hover {
+  background-color: #b47cff;
+}
+
+/* Special buttons */
+.logout-btn {
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  background-color: #b57cff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background-color: #9f63f5;
+}
+
+.list-all {
+  background-color: #ffa54c;
+}
+
+.list-all:hover {
+  background-color: #ff8c00;
+}
+
+.delete-btn {
+  background-color: #ff4c4c;
+}
+
+.delete-btn:hover {
+  background-color: #c73939;
+}
+
+.update-btn {
+  background-color: #4c8dff;
+}
+
+.update-btn:hover {
+  background-color: #3b6cd4;
+}
+
+/* Table */
+#eoi-table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  min-height: 55vh;
+
+}
+
+#eoi-table th {
+  background-color: #f2e8ff;
+  color: #333;
+  padding: 10px;
+}
+
+#eoi-table td {
+  background-color: #fff;
+  padding: 10px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+#eoi-table tr:nth-child(even) td {
+  background-color: #fafafa;
+}
+
+/* Messages */
+.msg {
+  text-align: center;
+  font-size: 15px;
+}
+
+.msg.success {
+  color: green;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #eoi-table {
+    font-size: 13px;
+  }
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+/* Prismatics HR Login Page */ ------------------------------------------------------------------------------------------------------
+
+
+/* Page Background */
+#login-page {
+  margin: 0;
+  font-family: 'Merriweather', serif;
+  background:
+    linear-gradient(123deg, #FFFCAC 0%, #FFFFFF 67%),
+    linear-gradient(180deg, #D8D8D8 0%, #ffffff 100%),
+    linear-gradient(142deg, #F9F5F0 0%, #F9F5F0 33%, #F2EAD3 calc(33% + 1px),
+    #F2EAD3 56%, #ffbcbc calc(56% + 1px), #ffbcbc 62%, #d57cff calc(62% + 1px),
+    #e5adff 100%);
+  background-blend-mode: multiply, overlay, normal;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 200vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Center container wrapper */
+.center-wrapper {
+  flex: 1; /* takes available height */
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center;     /* vertical centering */
+  min-height: 95vh;
+}
+
+/* Login Box */
+.login-container {
+  background: #ffffff;
+  padding: 40px 45px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  text-align: center;
+  width: 360px;
+  max-width: 90%;
+}
+
+/* Logo and Title */
+.login-logo {
+  width: 75px;
+  margin-bottom: 10px;
+}
+
+.login-title {
+  color: #0d47a1;
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+#login-form label {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+#login-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.login-btn {
+  margin-top: 18px;
+  background: #0d47a1;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background: #1565c0;
+}
+
+.back-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #d6d6d6;
+}
+
+/* Error Message */
+.error-msg {
+  color: red;
+  margin-top: 12px;
+}
+
+/* Footer fixed at bottom */
+#login-footer {
+  text-align: center;
+  color: #555;
+  font-size: 13px;
+  padding: 12px 0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    padding: 25px;
+  }
 }
 
 
