@@ -12,6 +12,13 @@
       <li><a href="jobs.php" class="<?php echo ($current_page=='jobs' ? 'active-link' : ''); ?>">Jobs</a></li>
       <li><a href="apply.php" class="<?php echo ($current_page=='apply' ? 'active-link' : ''); ?>">Apply</a></li>
       <li><a href="about.php" class="<?php echo ($current_page=='about' ? 'active-link' : ''); ?>">About</a></li>
+
+      <?php if (!isset($_SESSION)) session_start(); ?>
+      <?php if (!isset($_SESSION['username'])): ?>
+      <li><a href="login.php" class="<?php echo ($current_page=='login' ? 'active-link' : ''); ?>">Manager Portal</a></li>
+      <?php else: ?>
+      <li><a href="manage.php" class="<?php echo ($current_page=='manage' ? 'active-link' : ''); ?>">Manage EOIs</a></li>
+      <?php endif; ?>
     </ul>
   </nav>
 </header>
