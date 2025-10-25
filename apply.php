@@ -166,9 +166,9 @@
 
       <!-- Submit/reset -->
       <div class="button-row">
-        <button type="submit" class="btn">🚀 Send My Application</button>
+        <button type="submit" class="btn" style="background: #ff0000ff; color: #000000ff; font-weight: bold; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; transition: background 0.3s; margin: 10px 0;" >🚀 Send My Application</button>
         <!-- improvement from Assignment 1 - added inline css to complete css requirement -->
-        <button type="reset" style="background: #c62828; color: #ffffff; font-weight: bold; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; transition: background 0.3s; margin: 10px 0;">Reset Form</button>     
+        <button type="reset" style="background: #ff0000ff; color: #000000ff; font-weight: bold; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; transition: background 0.3s; margin: 10px 0;">Reset Form</button>     
       </div>
 
     </form>
