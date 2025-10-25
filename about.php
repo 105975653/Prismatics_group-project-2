@@ -1,58 +1,73 @@
 <?php
-// Load DB helper and fetch member contributions from jobs_db.about
-require_once __DIR__ . '/db.php';
+// about.php (dynamic)
+require_once("settings.php");
 
-try {
-  $rows = db()->query(
-    'SELECT Student_ID, Name, Contribution_part1, Contribution_part2 FROM about ORDER BY Student_ID'
-  )->fetchAll();
-} catch (Throwable $e) {
-  // Fail soft so the page layout still renders
-  $rows = [];
-}
+// page vars for includes
+$page_title   = "About | Prismatics";
+$current_page = "about";
+
+$conn = @mysqli_connect($DB_HOST, $DB_USER, $DB_PASS);
+if (!$conn) { die("<p>❌ Could not connect to MySQL server.</p>"); }
+@mysqli_query($conn, "CREATE DATABASE IF NOT EXISTS $DB_NAME");
+mysqli_select_db($conn, $DB_NAME);
+
+/* Create table if missing */
+$create_sql = "
+CREATE TABLE IF NOT EXISTS about_members (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  display_order TINYINT DEFAULT 0,
+  full_name VARCHAR(100) NOT NULL,
+  student_id VARCHAR(20) DEFAULT NULL,
+  assignment1_contrib VARCHAR(255) DEFAULT '',
+  assignment2_contrib VARCHAR(255) DEFAULT '',
+  quote_native TEXT NOT NULL,
+  quote_translation TEXT NOT NULL,
+  favorite_languages VARCHAR(255) DEFAULT '',
+  hidden_note TEXT DEFAULT '',
+  note_color VARCHAR(7) DEFAULT '#333333',
+  photo VARCHAR(255) DEFAULT '',
+  dream_job VARCHAR(100) DEFAULT '',
+  coding_snack VARCHAR(100) DEFAULT '',
+  hometown VARCHAR(100) DEFAULT ''
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci";
+mysqli_query($conn, $create_sql);
+
+
+/* Fetch members ordered */
+$members = mysqli_query($conn, "SELECT * FROM about_members ORDER BY display_order ASC, id ASC");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php 
-    $page_title = "About | Prismatics";
-    include("head.inc"); 
-  ?>
+  <?php include 'head.inc'; ?>
 </head>
-
 <body>
-<?php
-  $header_title = "Prismatics About Page";
-  $current_page = "about";
-  include("header.inc");
-?>
 
+<?php include 'header.inc'; ?>
 
+<!-- Group meta remains static -->
 <div>
   <section id="group-info" class="group-flex">
     <h2 id="dont-show">Group Details</h2>
     <div class="group-details">
       <ul>
         <li>Group Name - Prismatics
-          <ul>
-            <li>Class: Tuesday 12:30 - 2:30</li>
-          </ul>
+          <ul><li>Class: Tuesday 12:30 - 2:30</li></ul>
         </li>
       </ul>
     </div>
-
     <div>
       <p class="student-id">
-      Farhan - 105975653 <br>
-      Thisum - 105736999 <br>
-      Rahat - 105952504 <br>
-      Chamathka - 105704983
+        Farhan - 105975653 <br>
+        Thisum - 105736999 <br>
+        Rahat - 105952504 <br>
+        Chamathka - 105704983
       </p>
     </div>
   </section>
 </div>
 
-<!-- Group Photo -->
+<!-- Team photo stays static -->
 <section>
   <h2>Our Team</h2>
   <figure>
@@ -61,121 +76,53 @@ try {
   </figure>
 </section>
 
-<!-- DB-driven contributions table (inserted; layout around it unchanged) -->
-<section class="db-contrib">
-  <h2>Member Contributions (Loaded from Database)</h2>
-  <p class="db-badge">Source: jobs_db.about</p>
+<!-- Member Contributions (dynamic) -->
+<section id="Membercontrib">
+  <h2>Member Contributions and Quotes</h2>
+  <p style="text-align:center; font-style: italic; color:#555;">
+    Hover below to reveal a hidden message from each member.
+  </p>
 
-  <?php if (!$rows): ?>
-    <p>No records yet. Add rows in phpMyAdmin → jobs_db → about.</p>
+  <?php if ($members && mysqli_num_rows($members) > 0): ?>
+    <?php
+      $rows = [];
+      mysqli_data_seek($members, 0);
+      while ($m = mysqli_fetch_assoc($members)):
+        $rows[] = $m;
+    ?>
+      <div class="member-card">
+        <dl>
+          <dt><strong><?php echo htmlspecialchars($m['full_name']); ?></strong></dt>
+          <dd>
+            <strong>Assignment 1 Contributions:</strong> <?php echo htmlspecialchars($m['assignment1_contrib']); ?><br>
+            <strong>Assignment 2 Contributions:</strong> <?php echo htmlspecialchars($m['assignment2_contrib']); ?><br>
+            <em><?php echo htmlspecialchars($m['quote_native']); ?></em><br>
+            <?php echo htmlspecialchars($m['quote_translation']); ?><br>
+            Favourite Languages: <?php echo htmlspecialchars($m['favorite_languages']); ?><br>
+          </dd>
+        </dl>
+
+        <p class="hidden-note" style="color: <?php echo htmlspecialchars($m['note_color']); ?>">
+          <?php echo htmlspecialchars($m['hidden_note']); ?><br>
+          (My favourite color is the color of this text)
+        </p>
+
+        <div class="member-img">
+          <img src="images/<?php echo htmlspecialchars($m['photo']); ?>"
+               alt="<?php echo htmlspecialchars($m['full_name']); ?>"
+               title="<?php echo htmlspecialchars(pathinfo($m['photo'], PATHINFO_FILENAME)); ?>">
+        </div>
+      </div>
+    <?php endwhile; ?>
   <?php else: ?>
-    <table>
-      <thead>
-        <tr>
-          <th style="width:120px;">Student ID</th>
-          <th style="width:240px;">Name</th>
-          <th>Project 1</th>
-          <th>Project 2</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($rows as $r): ?>
-          <tr>
-            <td><?= htmlspecialchars($r['Student_ID']) ?></td>
-            <td><?= htmlspecialchars($r['Name']) ?></td>
-            <td class="wrap"><?= nl2br(htmlspecialchars($r['Contribution_part1'])) ?></td>
-            <td class="wrap"><?= nl2br(htmlspecialchars($r['Contribution_part2'])) ?></td>
-          </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+    <p style="text-align:center;">No team members found.</p>
   <?php endif; ?>
 </section>
 
-<!-- Member Contributions -->
-<section id="Membercontrib">
-  <h2>Member Contributions and Quotes</h2>
-  <p style="  text-align: center; font-style: italic; color: #555;">  Hover below to reveal a hidden message from each member. </p>
-<div class="member-card">
-  <dl>
-    <dt><strong>Farhan Monirul Islam</strong></dt>
-    <dd>
-      Applying page + CSS <br>
-      <em>"কোড হলো হাস্যরসের মতো। যখন তোমাকে এটা ব্যাখ্যা করতে হয়, তখন সেটা খারাপ।"</em><br>
-      Translation: Code is like humor. When you have to explain it, it’s bad. <br>
-      Favourite Languages: Python, Ruby and HTML <br>
-    </dd>
-  </dl>
-
-  <p id="farhan-color" class="hidden-note">
-    Hidden note from Farhan: I loved working with the team — it was a chance to grow, solve challenges, and bring our ideas to life.  
-    <br>(My favourite color is the color of this text)
-  </p> 
-
-  <div class="member-img">
-    <img src="images/farhan.jpg" alt="Farhan Monirul Islam" title="farhan">
-  </div>
-</div>
-
-
-  <div class="member-card">
-  <dl>
-    <dt><strong>Thisum Rajaratne</strong></dt>
-    <dd>
-      Contributions: Home Page <br>
-      <em>"හොඳ නිර්මාණයක් හොඳ කේතයක් තරම්ම වැදගත්."</em>
-      Translation: "Good design is just as important as good code". <br>
-      Favourite Language: Ruby <br>
-    </dd>
-  </dl>
-    <p id="thisum-color" class="hidden-note">"Hidden note from Thisum: Being part of this project was exciting and taught me new skills while creating something meaningful together. <br>(My favourite color is the color of this text) </p>
-
-    <div class="member-img">
-      <img src="images/thisum.png" alt="Thisum Rajaratne" title="thisum">
-    </div>
-  </div>
-
-  <div class="member-card">
-  <dl>
-    <dt><strong>Chamathka Sandali Amarasekara</strong></dt>
-      <dd>
-      Contributions: Job Description Page <br>
-      <em>"තාක්ෂණය  මිනිසුන්ගේ ජීවිත වෙනස් කළ හැකියැයි මම විශ්වාස කරනවා, සහ මම එම වෙනසකට සම්බන්ධවීමට කැමතියි."</em>
-      Translation: "I believe that technology can change people's lives, and I want to be involved in that change." <br>
-      Favourite Language: Python <br>
-    </dd>
-  </dl>
-    <p id="chamathka-color" class="hidden-note">Hidden note from Chamathka: I really enjoyed contributing and collaborating. Every step showed me the value of teamwork and creativity. <br> (My favourite color is the color of this text) </p>
-
-    <div class="member-img">
-      <img src="images/chamathka.png" alt="Chamathka Sandali Amarasekara" title="chama">
-    </div>
-  </div>
-
-  <div class="member-card">
-  <dl>
-    <dt><strong>Mahabub Hasan Rahat</strong></dt>
-    <dd>
-      About Page <br>
-      <em>""কোডিং হলো যুক্তির মাধ্যমে প্রকাশিত সৃজনশীলতা।."</em>
-      Translation: "Coding is creativity expressed in logic." <br>
-      Favourite Language: Python <br>
-    </dd>
-  </dl>
-    <p id="rahat-color" class="hidden-note">Hidden note from Rahat: This project was a rewarding journey where I learned, shared ideas, and grew alongside a great team. <br> (My favourite color is the color of this text) </p>
-
-    <div class="member-img">
-      <img src="images/rahat.jpg" alt="Mahabub Hasan Rahat" title="Rahat">
-    </div>
-  </div>
-
-</section>
-
-<!-- Fun Facts Table -->
+<!-- Fun Facts (dynamic from same table) -->
 <section>
   <h2>Fun Facts About Our Team</h2>
   <table class="fun-facts">
-    
     <thead>
       <tr>
         <th>Name</th>
@@ -185,36 +132,19 @@ try {
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Farhan Monirul Islam</td>
-        <td>Computer Scientist</td>
-        <td>Coffee</td>
-        <td>Dhaka</td>
-      </tr>
-      <tr>
-        <td>Thisum Rajaratne</td>
-        <td>Farmer Far from city</td>
-        <td>Chocolate</td>
-        <td>kandy</td>
-      </tr>
-      <tr>
-        <td>Chamathka Sandali Amarasekara</td>
-        <td>software developer</td>
-        <td>chocolate</td>
-        <td>colombo</td>
-      </tr>
-      <tr>
-        <td>Mahabub Hasan Rahat</td>
-        <td>AI Engineer</td>
-        <td>Pizza</td>
-        <td>Dhaka</td>
-      </tr>
+      <?php foreach ($rows as $r): ?>
+        <tr>
+          <td><?php echo htmlspecialchars($r['full_name']); ?></td>
+          <td><?php echo htmlspecialchars($r['dream_job']); ?></td>
+          <td><?php echo htmlspecialchars($r['coding_snack']); ?></td>
+          <td><?php echo htmlspecialchars($r['hometown']); ?></td>
+        </tr>
+      <?php endforeach; ?>
     </tbody>
   </table>
 </section>
 
-<?php include("footer.inc"); ?>
-
-</footer>
+<?php include 'footer.inc'; ?>
 </body>
 </html>
+<?php mysqli_close($conn); ?>
