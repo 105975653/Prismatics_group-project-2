@@ -76,24 +76,25 @@ if (isset($_POST['update_status'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Manage EOIs | Prismatics</title>
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="stylesheet" href="styles/manage.css">
+  <?php 
+    $page_title = "Manage EOIs | Prismatics";
+    include 'head.inc'; 
+  ?>
 </head>
 
 <body id="manage-page">
   <!-- Header Section -->
-  <h2 class="welcome-text">👋 Welcome, <?php echo $_SESSION["username"]; ?> (HR Manager)</h2>
+  <h1 class="welcome-text">👋 Welcome, <?php echo $_SESSION["username"]; ?> (HR Manager)</h1>
 
   <!-- Logout Button -->
   <form method="post" action="" class="logout-form">
     <button type="submit" name="logout" class="logout-btn">Logout</button>
   </form>
+<main>
 
   <!-- Search & Sort Section -->
   <section id="search-section">
-    <h3>Search & Manage EOIs</h3>
+    <h2>Search and Manage EOIs</h2>
     <form method="get" action="" id="search-form">
       <label for="jobref">Job Reference:</label>
       <input type="text" name="jobref" id="jobref">
@@ -101,6 +102,7 @@ if (isset($_POST['update_status'])) {
 
       <label for="firstname">Applicant Name:</label>
       <input type="text" name="firstname" id="firstname" placeholder="First">
+      <label for="lastname">Applicant Name:</label>
       <input type="text" name="lastname" id="lastname" placeholder="Last">
       <button type="submit" name="search_by_name" class="btn">Search</button>
 
@@ -168,15 +170,21 @@ if (isset($_POST['update_status'])) {
         <td><?php echo $row['email']; ?></td>
         <td><?php echo $row['status']; ?></td>
         <td>
-          <form method="post" action="" class="update-form">
-            <input type="hidden" name="eoi_id" value="<?php echo $row['eoi_id']; ?>">
-            <select name="status">
-              <option value="New">New</option>
-              <option value="Current">Current</option>
-              <option value="Final">Final</option>
-            </select>
-            <button type="submit" name="update_status" class="btn update-btn">Update</button>
-          </form>
+<form method="post" action="" class="update-form" aria-label="Update EOI Status">
+  <input type="hidden" name="eoi_id" value="<?php echo $row['eoi_id']; ?>">
+
+  <label for="status_<?php echo $row['eoi_id']; ?>" class="visually-hidden">
+    Status for EOI <?php echo $row['eoi_id']; ?>
+  </label>
+  <select name="status" id="status_<?php echo $row['eoi_id']; ?>">
+    <option value="New" <?php if($row['status'] == 'New') echo 'selected'; ?>>New</option>
+    <option value="Current" <?php if($row['status'] == 'Current') echo 'selected'; ?>>Current</option>
+    <option value="Final" <?php if($row['status'] == 'Final') echo 'selected'; ?>>Final</option>
+  </select>
+
+  <button type="submit" name="update_status" class="btn update-btn">Update</button>
+</form>
+
         </td>
       </tr>
     <?php endwhile; ?>
@@ -195,5 +203,7 @@ if (isset($_POST['update_status'])) {
       <button type="submit" name="delete_btn" class="btn delete-btn">Delete</button>
     </form>
   </section>
+  </main>
+
 </body>
 </html>

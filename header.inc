@@ -6,7 +6,7 @@
   <p id="top-para">Strengthening our product and design team through tech talent</p>
 
   <nav>
-    <img src="images/logo3.png" alt="Prismatics Logo" title="Prismatics Logo" class="logo">
+    <img src="images/logo3.png" alt="Prismatics logo" title="Prismatics Logo" class="logo">
     <ul class="nav-menu">
       <li><a href="index.php" class="<?php echo ($current_page=='home' ? 'active-link' : ''); ?>">Home</a></li>
       <li><a href="jobs.php" class="<?php echo ($current_page=='jobs' ? 'active-link' : ''); ?>">Jobs</a></li>

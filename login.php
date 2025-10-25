@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <div class="center-wrapper">
     <div class="login-container">
       <img src="images/logo3.png" alt="Prismatics Logo" class="login-logo">
-      <h2 class="login-title">HR Manager Login</h2>
+      <h1 class="login-title">HR Manager Login</h1>
 
       <!-- Login Form -->
       <form method="post" action="" id="login-form">
