@@ -24,7 +24,7 @@ mysqli_query($conn, $create_users_sql);
 // Ensure Admin account exists (default credentials: Admin / Admin)
 $check_admin = mysqli_query($conn, "SELECT * FROM users WHERE username='Admin'");
 if (mysqli_num_rows($check_admin) == 0) {
-    $admin_password = hash('sha256', 'Admin');
+    $admin_password = password_hash('Admin', PASSWORD_DEFAULT);
     mysqli_query($conn, "INSERT INTO users (username, password_hash) VALUES ('Admin', '$admin_password')");
 }
 
@@ -40,7 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->execute();
     $stmt->bind_result($hash);
 
-    if ($stmt->fetch() && hash('sha256', $password) === $hash) {
+    if ($stmt->fetch() && password_verify($password, $hash)) {
+        session_regenerate_id(true);
         $_SESSION["logged_in"] = true;
         $_SESSION["username"] = $username;
         header("Location: manage.php");
