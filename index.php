@@ -67,7 +67,7 @@
         <p class="home-para">
         Prismatics is growing and we’re looking for passionate individuals to join our team.  
         Explore exciting roles in development, design, and technology.  
-        Click here to visit <a href="jobdesc.html">job description</a>
+        Click here to visit <a href="jobs.php">job description</a>
         </p>
       </div>
     </section>
