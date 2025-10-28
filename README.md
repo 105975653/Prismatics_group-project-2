@@ -12,6 +12,9 @@ Features
 2) Jobs Page (jobs.html)
 3) Application Form (apply.html)
 4) About Page (about.html)
+5) Manage Portal ( manage.php )
+
+login page for manage.php uses Admin Admin as said to do in canvas.
 
 Group Details
 
